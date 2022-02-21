@@ -1,8 +1,6 @@
 package com.RushHour;
 
-import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -24,7 +22,7 @@ class Battlefield {
             if(i==5){
                 playerLanes[i] = total;
             }
-            
+
             System.out.println("Lane: " + i + " Enter the amount of soldiers between 1 and " + total);
             // check for invalid input maybe in try catch
             int soldiers = getValidNumber();
@@ -46,14 +44,14 @@ class Battlefield {
     }
 
     public void menu(){
-        
+
         System.out.println("What would you like to do?");
         System.out.println("Current amount of soldiers: " + totalAmount);
         System.out.println("Required amount of soldiers: " + player.getSoldiers());
         System.out.println("========================================");
         System.out.println(" [U]pdate        [S]tore       [P]lay");
         System.out.println("========================================");
-        
+
         String userInput = scanner.nextLine().toLowerCase();
         switch(userInput){
             case "u":
@@ -62,17 +60,17 @@ class Battlefield {
                 int lane = getValidNumber();
                 update(lane);
                 break;
-                
+
             case "s":
             case "store":
                 store();
                 break;
-                
+
             case "p":
             case "play":
                 play();
                 break;
-                
+
             default:
                 System.out.println("Enter a valid response");
                 menu();
@@ -93,4 +91,6 @@ class Battlefield {
 
     private void play() {
     }
+
+
 }

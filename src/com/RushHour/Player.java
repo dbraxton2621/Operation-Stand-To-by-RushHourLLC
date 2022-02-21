@@ -2,7 +2,7 @@ package com.RushHour;
 
 class Player {
     //instance variables (fields)
-    private int soldiers = 100;
+    public int soldiers = 100;
     private int health = 100;
 
     //constructors
@@ -14,7 +14,7 @@ class Player {
     //methods
 
     //accessor methods
-    public int getSoldiers() {
+    public static int getSoldiers() {
         return soldiers;
     }
 
@@ -22,7 +22,7 @@ class Player {
         this.soldiers = soldiers;
     }
 
-    public int getHealth() {
+    public static int getHealth() {
         return health;
     }
 
