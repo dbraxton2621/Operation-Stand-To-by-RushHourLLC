@@ -19,7 +19,7 @@ public class Enemy extends Player{
         boss3.generateEnemyLanes(boss3);
     }
 
-    public void generateEnemyLanes(Enemy enemy) {
+    public ArrayList<Integer> generateEnemyLanes(Enemy enemy) {
         ArrayList<Integer> enemyFront = new ArrayList<Integer>();
         int total = enemy.getSoldiers();
         double lane1 = Math.random() * total;
@@ -32,6 +32,6 @@ public class Enemy extends Player{
         enemyFront.add((int) lane3);
         enemyFront.add((int) lane4);
         enemyFront.add((int) lane5);
-        System.out.println(enemyFront);
+        return enemyFront;
     }
 }
