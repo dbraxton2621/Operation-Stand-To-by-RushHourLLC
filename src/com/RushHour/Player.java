@@ -14,7 +14,7 @@ class Player {
     //methods
 
     //accessor methods
-    public static int getSoldiers() {
+    public int getSoldiers() {
         return soldiers;
     }
 
@@ -22,7 +22,7 @@ class Player {
         this.soldiers = soldiers;
     }
 
-    public static int getHealth() {
+    public int getHealth() {
         return health;
     }
 
