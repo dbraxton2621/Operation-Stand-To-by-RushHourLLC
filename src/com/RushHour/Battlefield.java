@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class Battlefield extends Player{
+class Battlefield {
     private Scanner scanner = new Scanner(System.in);
     ArrayList<Integer> deployment = new ArrayList<>();
 
-    public Battlefield(int soldiers, int health) {
-        super(soldiers, health);
-    }
 
-    public void getPlayerChoice(){
+
+    public ArrayList<Integer> getPlayerChoice(){
         deployment.isEmpty();
         boolean validInput = false;
         while (deployment.size() < 5) { // 5 is the number of lanes
@@ -24,7 +22,7 @@ class Battlefield extends Player{
                 deployment.add(choice);
             }
         }
-        return ;
+        return deployment;
     }
 
 
