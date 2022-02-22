@@ -72,8 +72,23 @@ class Player {
                     int newSoldiers = getSoldiers() + moreSoldiers;
                     //update(soldiers);
                     break;
+
+                String userStoreInput = scanner.nextLine().toLowerCase();
+                switch (userStoreInput) {
+                    case "s":
+                    case "Soldiers":
+                        System.out.println("This will add +10 soldiers to" + getSoldiers());
+                        int newHealth = getHealth() + moreHealth;
+                        update(newhealth);
+                        break;
+                }
+
+
             }
+
 
         }
     }
+
 }
+
