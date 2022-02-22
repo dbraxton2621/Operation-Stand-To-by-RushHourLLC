@@ -63,8 +63,16 @@ class Player {
                 case "Health":
                     System.out.println("This will add +10 health to " + getHealth());
                     int newHealth = getHealth() + moreHealth;
-                    update(health);
+                    //update(health);
                     break;
+
+                case "s":
+                case "Soldiers":
+                    System.out.println("This will add +10 soldiers to" + getSoldiers());
+                    int newSoldiers = getSoldiers() + moreSoldiers;
+                    //update(soldiers);
+                    break;
+
                 String userStoreInput = scanner.nextLine().toLowerCase();
                 switch (userStoreInput) {
                     case "s":
@@ -75,8 +83,12 @@ class Player {
                         break;
                 }
 
+
             }
 
 
         }
     }
+
+}
+
