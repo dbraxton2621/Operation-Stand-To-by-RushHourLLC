@@ -1,8 +1,5 @@
 package com.RushHour;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
-import java.util.*;
 import java.util.Scanner;
 
 class Player {
@@ -33,7 +30,7 @@ class Player {
         switch (userStoreInput) {
             case "h":
             case "Health":
-                System.out.println("This will add +10 health to " + getHealth());
+                System.out.println("This will add +10 health to " + getHealth() + " .");
                 int newHealth = getHealth() + 10;
                 setHealth(newHealth);
                 //update(health);
@@ -41,11 +38,16 @@ class Player {
 
             case "s":
             case "Soldiers":
-                System.out.println("This will add +10 soldiers to" + getSoldiers());
+                System.out.println("This will add +10 soldiers to " + getSoldiers() + " .");
                 int newSoldiers = getSoldiers() + 10;
                 setSoldiers(newSoldiers);
                 setHealth(getHealth()-10);
                 //update(soldiers);
+                break;
+
+            default:
+                System.out.println("Please provide a response.");
+                goToStore();
                 break;
         }
     }

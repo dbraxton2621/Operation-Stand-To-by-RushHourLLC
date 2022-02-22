@@ -7,20 +7,8 @@ public class Enemy extends Player{
 
     public Enemy(int soldiers, int health) {
         super(soldiers, health);
-        /*
-        Enemy boss1 = new Enemy(80, 80);
-        boss1.generateEnemyLanes(boss1);
-
-        Enemy boss2 = new Enemy(90, 100);
-        boss2.generateEnemyLanes(boss2);
-
-        Enemy boss3 = new Enemy(110, 110);
-        boss3.generateEnemyLanes(boss3);
-
-         */
     }
 
-    // sdjfla
     public int[] generateEnemyLanes(Enemy enemy) {
         int[] enemyFront = new int[5];
         int total = enemy.getSoldiers();
