@@ -1,45 +1,30 @@
 package com.RushHour;
 
-class Store{
+import java.util.Scanner;
+
+public class Store{
 
     //instance variables (fields)
-    private int addSoldiers = 10;
-    private int addHealth = 10;
-    public int newSoldierValue;
-    public int newHealthValue;
+    Scanner scanner = new Scanner(System.in);
+    public int moreSoldiers = 10;
+    public int moreHealth = 10;
 
     //constructors
-    public Store(int addSoldiers, int addHealth, int newSoldierValue, int newHealthValue) {
-        this.addSoldiers = addSoldiers;
-        this.addHealth = addHealth;
-        this.newSoldierValue = newSoldierValue;
-        this.newHealthValue = newHealthValue;
+    public Store(int moreSoldiers, int moreHealth) {
+        this.moreSoldiers = moreSoldiers;
+        this.moreHealth = moreHealth;
+    }
+    public void store() {
+        System.out.println("    *************Store***************");
+        System.out.println("========================================");
+        System.out.println("     [H]ealth =+10    [S]oldiers +10 ");
+        System.out.println("         =======================");
 
-    }
-    //Add 10 soldiers to whatever the current soldiers amount
-    public void MoreSoldiers() {
-       int newSoldiersValue = addSoldiers + Player.getSoldiers();
-    }
-
-    //Adds 10 health to whatever the current health amount
-    public void MoreHealth() {
-        int newSoldiersValue =  addHealth + Player.getHealth();
-    }
-
-    //G&S
-    public int getNewSoldierValue() {
-        return newSoldierValue;
-    }
-
-    public int getNewHealthValue() {
-        return newHealthValue;
-    }
-
-    public void setNewSoldierValue(int newSoldierValue) {
-        this.newSoldierValue = newSoldierValue;
-    }
-
-    public void setNewHealthValue(int newHealthValue) {
-        this.newHealthValue = newHealthValue;
-    }
-}
+        String userStoreInput = scanner.nextLine().toLowerCase();
+        switch (userStoreInput) {
+            case "h":
+            case "Health":
+                System.out.println("This will add +10 health");
+                int newHealth = Player.getHealth() + moreHealth;
+                update(Player.health);
+                break;
