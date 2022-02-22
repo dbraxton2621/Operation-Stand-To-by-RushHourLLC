@@ -141,7 +141,7 @@ public class Battlefield {
         }
         System.out.println();
 
-
+        //fsde
         //TODO fix this shit
         // if dif is positive, subtract from enemy hp
         // if dif is neg, subtract from user hp

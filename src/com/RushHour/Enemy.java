@@ -20,7 +20,7 @@ public class Enemy extends Player{
          */
     }
 
-
+    // sdjfla
     public int[] generateEnemyLanes(Enemy enemy) {
         int[] enemyFront = new int[5];
         int total = enemy.getSoldiers();

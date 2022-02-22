@@ -51,7 +51,7 @@ class Player {
             this.moreSoldiers = moreSoldiers;
             this.moreHealth = moreHealth;
         }
-        /*
+
         void store() {
             System.out.println("===**************Store***************===");
             System.out.println("     [H]ealth = +10    [S]oldiers +10   ");
@@ -77,6 +77,6 @@ class Player {
 
             }
 
-         */
+
         }
     }
