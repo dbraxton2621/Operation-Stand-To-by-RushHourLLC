@@ -7,9 +7,7 @@ public class Enemy extends Player{
 
     public Enemy(int soldiers, int health) {
         super(soldiers, health);
-    }
 
-    public static void main(String[] args) {
         Enemy boss1 = new Enemy(80, 80);
         boss1.generateEnemyLanes(boss1);
 
@@ -19,6 +17,7 @@ public class Enemy extends Player{
         Enemy boss3 = new Enemy(110, 110);
         boss3.generateEnemyLanes(boss3);
     }
+
 
     public List<Integer> generateEnemyLanes(Enemy enemy) {
         List<Integer> enemyFront = new ArrayList();
