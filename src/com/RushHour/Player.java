@@ -1,5 +1,8 @@
 package com.RushHour;
 
+import java.util.*;
+import java.util.Scanner;
+
 class Player {
     //instance variables (fields)
     public int soldiers = 100;
@@ -34,4 +37,42 @@ class Player {
     public String toString() {
         return "Your Unit has, " + getSoldiers() + " Soldiers currently and base health is at " + getHealth() + " percent.";
     }
-}
+    //Nested to uses Player
+    public class Store {
+
+        //instance variables (fields)
+        Scanner scanner = new Scanner(System.in);
+        public int moreSoldiers = 10;
+        public int moreHealth = 10;
+
+        //constructors
+        public Store(int moreSoldiers, int moreHealth) {
+            this.moreSoldiers = moreSoldiers;
+            this.moreHealth = moreHealth;
+        }
+
+        void store() {
+            System.out.println("===**************Store***************===");
+            System.out.println("     [H]ealth = +10    [S]oldiers +10   ");
+            System.out.println("========================================");
+
+            String userStoreInput = scanner.nextLine().toLowerCase();
+            switch (userStoreInput) {
+                case "h":
+                case "Health":
+                    System.out.println("This will add +10 health to " + getHealth());
+                    int newHealth = getHealth() + moreHealth;
+                    update(health);
+                    break;
+                String userStoreInput = scanner.nextLine().toLowerCase();
+                switch (userStoreInput) {
+                    case "s":
+                    case "Soldiers":
+                        System.out.println("This will add +10 soldiers to" + getSoldiers());
+                        int newHealth = getHealth() + moreHealth;
+                        update(newhealth);
+                        break;
+            }
+
+        }
+    }
