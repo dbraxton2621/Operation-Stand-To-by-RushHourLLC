@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 
 public class BattleFieldTest {
-
+/*
     public static void main(String[] args) {
         Player player = new Player(100,100);
         Enemy enemy = new Enemy(100,100);
@@ -38,5 +38,7 @@ public class BattleFieldTest {
         battlefield.menu();
     }
 
+
+ */
 
 }

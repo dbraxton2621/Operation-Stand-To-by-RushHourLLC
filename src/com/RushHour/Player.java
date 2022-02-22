@@ -1,5 +1,7 @@
 package com.RushHour;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.*;
 import java.util.Scanner;
 
@@ -7,6 +9,8 @@ class Player {
     //instance variables (fields)
     public int soldiers = 100;
     private int health = 100;
+    Scanner scanner = new Scanner(System.in);
+
 
     //constructors
     public Player(int soldiers, int health) {
@@ -15,6 +19,36 @@ class Player {
     }
 
     //methods
+    // TODO airstrike option in the future
+    void goToStore() {
+        System.out.println("     TRADE YOUR HEALTH FOR SOLDIERS     ");
+        System.out.println("                   OR");
+        System.out.println("                GET HEALTH");
+        System.out.println("Current HP: " + getHealth());
+        System.out.println("===**************Store***************===");
+        System.out.println("     [H]ealth = +10    [S]oldiers +10   ");
+        System.out.println("========================================");
+
+        String userStoreInput = scanner.nextLine().toLowerCase();
+        switch (userStoreInput) {
+            case "h":
+            case "Health":
+                System.out.println("This will add +10 health to " + getHealth());
+                int newHealth = getHealth() + 10;
+                setHealth(newHealth);
+                //update(health);
+                break;
+
+            case "s":
+            case "Soldiers":
+                System.out.println("This will add +10 soldiers to" + getSoldiers());
+                int newSoldiers = getSoldiers() + 10;
+                setSoldiers(newSoldiers);
+                setHealth(getHealth()-10);
+                //update(soldiers);
+                break;
+        }
+    }
 
     //accessor methods
     public int getSoldiers() {
@@ -36,58 +70,6 @@ class Player {
     @Override
     public String toString() {
         return "Your Unit has, " + getSoldiers() + " Soldiers currently and base health is at " + getHealth() + " percent.";
-    }
-
-    //Nested to uses Player
-    public class Store {
-
-        //instance variables (fields)
-        Scanner scanner = new Scanner(System.in);
-        public int moreSoldiers = 10;
-        public int moreHealth = 10;
-
-        //constructors
-        public Store(int moreSoldiers, int moreHealth) {
-            this.moreSoldiers = moreSoldiers;
-            this.moreHealth = moreHealth;
-        }
-
-        void store() {
-            System.out.println("===**************Store***************===");
-            System.out.println("     [H]ealth = +10    [S]oldiers +10   ");
-            System.out.println("========================================");
-
-            String userStoreInput = scanner.nextLine().toLowerCase();
-            switch (userStoreInput) {
-                case "h":
-                case "Health":
-                    System.out.println("This will add +10 health to " + getHealth());
-                    int newHealth = getHealth() + moreHealth;
-                    //update(health);
-                    break;
-
-                case "s":
-                case "Soldiers":
-                    System.out.println("This will add +10 soldiers to" + getSoldiers());
-                    int newSoldiers = getSoldiers() + moreSoldiers;
-                    //update(soldiers);
-                    break;
-
-                String userStoreInput = scanner.nextLine().toLowerCase();
-                switch (userStoreInput) {
-                    case "s":
-                    case "Soldiers":
-                        System.out.println("This will add +10 soldiers to" + getSoldiers());
-                        int newHealth = getHealth() + moreHealth;
-                        update(newhealth);
-                        break;
-                }
-
-
-            }
-
-
-        }
     }
 
 }
