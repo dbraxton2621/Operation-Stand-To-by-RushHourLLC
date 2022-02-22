@@ -19,19 +19,19 @@ public class Enemy extends Player{
     }
 
 
-    public List<Integer> generateEnemyLanes(Enemy enemy) {
-        List<Integer> enemyFront = new ArrayList();
+    public void generateEnemyLanes(Enemy enemy) {
+        double[] enemyFront = {};
         int total = enemy.getSoldiers();
         double lane1 = Math.random() * total;
         double lane2 = Math.random() * (total - lane1);
         double lane3 = Math.random() * (total - (lane1 + lane2));
         double lane4 = Math.random() * (total - (lane1 + lane2 + lane3));
         double lane5 = total - (lane1 + lane2 + lane3 + lane4);
-        enemyFront.add((int) lane1);
-        enemyFront.add((int) lane2);
-        enemyFront.add((int) lane3);
-        enemyFront.add((int) lane4);
-        enemyFront.add((int) lane5);
-        return enemyFront;
+        enemyFront[0] = lane1;
+        enemyFront[1] = lane2;;
+        enemyFront[2] = lane3;;
+        enemyFront[3] = lane4;;
+        enemyFront[4] = lane5;;
     }
+
 }
