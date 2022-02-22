@@ -42,4 +42,6 @@ public class Store{
         this.healthNewValue = healthNewValue;
     }
 
+
+
 }
