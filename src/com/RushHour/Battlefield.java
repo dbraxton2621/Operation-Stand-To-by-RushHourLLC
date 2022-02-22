@@ -8,15 +8,15 @@ import java.util.Scanner;
 
 
 public class Battlefield {
-    private Store store;
+
     private Player player;
     private Enemy enemy;
     private int totalAmount = 0;
-    private final int[] playerLanes = new int[5];
+    private int[] playerLanes = new int[5];
     // Array Idea first
     //TODO maybe make a lane class
     private final Scanner scanner = new Scanner(System.in);
-    private final int[] enemyLanes = new int[5];
+    private int[] enemyLanes = new int[5];
 
 
     // Constructor
@@ -45,7 +45,7 @@ public class Battlefield {
             }
             // else we get the input from the user and check if its valid.
             // We put the amount into the lane and subtract it from the total
-            System.out.println("Lane: " + i + " Enter the amount of soldiers between 1 and " + total);
+            System.out.println("Lane: " + (i+1) + " Enter the amount of soldiers between 1 and " + total);
             // check for invalid input
             int soldiers = getValidNumber();
             //String input = scanner.nextLine();
@@ -81,6 +81,8 @@ public class Battlefield {
         System.out.println("What would you like to do?");
         System.out.println("Current amount of soldiers: " + totalAmount);
         System.out.println("Required amount of soldiers: " + player.getSoldiers());
+        System.out.println("Enemy: "+enemy.getHealth());
+        System.out.println("Player: " + player.getHealth());
         System.out.println("========================================");
         System.out.println(" [U]pdate        [S]tore       [P]lay");
         System.out.println("========================================");
@@ -102,7 +104,7 @@ public class Battlefield {
 
             case "s":
             case "store":
-                store();
+
                 break;
 
             case "p":
@@ -114,9 +116,6 @@ public class Battlefield {
                 System.out.println("Enter a valid response");
                 menu();
         }
-    }
-
-    private void store() {
     }
 
     private void update(int lane) {
@@ -135,10 +134,38 @@ public class Battlefield {
     private void play() {
         int playerTotal = 0;
         int enemyTotal = 0;
-        List<Integer> enemyLane = enemy.generateEnemyLanes(enemy);
-        for (int i = 0; i < playerLanes.length; i++){
-            // playerEnemyComparator(playerLanes[i], enemyLane.get(i));
+
+        enemyLanes = enemy.generateEnemyLanes(enemy);
+        for (var item : enemyLanes){
+            System.out.print("[" + item + "]");
         }
+        System.out.println();
+
+
+        //TODO fix this shit
+        // if dif is positive, subtract from enemy hp
+        // if dif is neg, subtract from user hp
+        //int chosenLane = rand
+        int dif = ((int)playerLanes[1]) - ((int) enemyLanes[1]);
+        // player wins, subtract dif from enemy health
+        // subtract enemy lane soldiers from both sides
+        if(dif > 0){
+            System.out.println("You won and did " + dif + " dmg");
+            enemy.setHealth(enemy.getHealth()-dif);
+            //enemy.setSoldiers(enemy.getSoldiers()-enemyLanes[i]);
+            //player.setSoldiers(player.getSoldiers()-enemyLanes[i]);
+        }
+        else{
+            // enemy wins
+            // vice versa
+
+            System.out.println("You lost and took " + dif + " dmg");
+            player.setHealth(player.getHealth()-Math.abs(dif));
+            //enemy.setSoldiers(enemy.getSoldiers()-playerLanes[i]);
+            //player.setSoldiers(player.getSoldiers()-playerLanes[i]);
+        }
+        menu();
+
     }
 
     // Accessor Methods

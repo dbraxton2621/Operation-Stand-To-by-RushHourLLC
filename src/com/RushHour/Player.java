@@ -37,6 +37,7 @@ class Player {
     public String toString() {
         return "Your Unit has, " + getSoldiers() + " Soldiers currently and base health is at " + getHealth() + " percent.";
     }
+
     //Nested to uses Player
     public class Store {
 
@@ -50,7 +51,7 @@ class Player {
             this.moreSoldiers = moreSoldiers;
             this.moreHealth = moreHealth;
         }
-
+        /*
         void store() {
             System.out.println("===**************Store***************===");
             System.out.println("     [H]ealth = +10    [S]oldiers +10   ");
@@ -72,7 +73,10 @@ class Player {
                         int newHealth = getHealth() + moreHealth;
                         update(newhealth);
                         break;
+                }
+
             }
 
+         */
         }
     }
