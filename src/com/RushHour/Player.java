@@ -37,6 +37,7 @@ class Player {
     public String toString() {
         return "Your Unit has, " + getSoldiers() + " Soldiers currently and base health is at " + getHealth() + " percent.";
     }
+
     //Nested to uses Player
     public class Store {
 
@@ -62,17 +63,17 @@ class Player {
                 case "Health":
                     System.out.println("This will add +10 health to " + getHealth());
                     int newHealth = getHealth() + moreHealth;
-                    update(health);
+                    //update(health);
                     break;
-                String userStoreInput = scanner.nextLine().toLowerCase();
-                switch (userStoreInput) {
-                    case "s":
-                    case "Soldiers":
-                        System.out.println("This will add +10 soldiers to" + getSoldiers());
-                        int newHealth = getHealth() + moreHealth;
-                        update(newhealth);
-                        break;
+
+                case "s":
+                case "Soldiers":
+                    System.out.println("This will add +10 soldiers to" + getSoldiers());
+                    int newSoldiers = getSoldiers() + moreSoldiers;
+                    //update(soldiers);
+                    break;
             }
 
         }
     }
+}
