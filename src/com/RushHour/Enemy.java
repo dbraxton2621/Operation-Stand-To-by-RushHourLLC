@@ -21,7 +21,7 @@ public class Enemy extends Player{
     }
 
     public List<Integer> generateEnemyLanes(Enemy enemy) {
-        List<Integer> enemyFront = new ArrayList<Integer>();
+        List<Integer> enemyFront = new ArrayList();
         int total = enemy.getSoldiers();
         double lane1 = Math.random() * total;
         double lane2 = Math.random() * (total - lane1);
