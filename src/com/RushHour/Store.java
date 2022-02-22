@@ -39,7 +39,9 @@ class Store{
         this.newSoldierValue = newSoldierValue;
     }
 
+
     public void setNewHealthValue(int newHealthValue) {
         this.newHealthValue = newHealthValue;
     }
+
 }
