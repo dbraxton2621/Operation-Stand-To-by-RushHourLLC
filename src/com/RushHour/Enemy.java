@@ -1,6 +1,7 @@
 package com.RushHour;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Enemy extends Player{
 
@@ -19,8 +20,8 @@ public class Enemy extends Player{
         boss3.generateEnemyLanes(boss3);
     }
 
-    public ArrayList<Integer> generateEnemyLanes(Enemy enemy) {
-        ArrayList<Integer> enemyFront = new ArrayList<Integer>();
+    public List<Integer> generateEnemyLanes(Enemy enemy) {
+        List<Integer> enemyFront = new ArrayList<Integer>();
         int total = enemy.getSoldiers();
         double lane1 = Math.random() * total;
         double lane2 = Math.random() * (total - lane1);
