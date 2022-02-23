@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 
 public class Battlefield {
-    private Player player;
-    private Enemy enemy;
+    private final Player player;
+    private final Enemy enemy;
     private int totalAmount = 0;
-    private int[] playerLanes = new int[5];
+    private final int[] playerLanes = new int[5];
     private final Scanner scanner = new Scanner(System.in);
     private int[] enemyLanes = new int[5];
     private boolean gameEnd;
-
+    private final Display display = new Display();
     // Constructor
     public Battlefield(Player player, Enemy enemy,boolean gameEnd) {
         this.player = player;
@@ -124,6 +124,7 @@ public class Battlefield {
 
     private void play() {
         Console.clear();
+        display.displayBattle();
         int laneNumber = (int) (Math.random() * 5);
         System.out.println("Chosen Lane: " + (laneNumber + 1));
         enemyLanes = enemy.generateLanes();
