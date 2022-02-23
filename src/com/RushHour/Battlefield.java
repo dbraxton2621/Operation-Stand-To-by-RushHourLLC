@@ -137,25 +137,23 @@ public class Battlefield {
         if (dif > 0) {
             System.out.println("You won and did " + dif + " dmg");
             enemy.setHealth(enemy.getHealth() - dif);
-        }
-        else {
+        } else if (dif < 0){
             // enemy wins
             System.out.println("You lost and took " + dif + " dmg");
             player.setHealth(player.getHealth() - Math.abs(dif));
+        } else {
+            System.out.println("The fight was a draw and zero damage was taken.");
         }
         checkGameStatus(player,enemy);
-
-
     }
 
     private void checkGameStatus(Player player, Enemy enemy) {
-        if(player.getHealth() < 0){
-            System.out.println("you lost");
+        if(player.getHealth() <= 0){
+            System.out.println("You have lost!");
             setGameEnd(true);
-
         }
-        else if(enemy.getHealth() < 0){
-            System.out.println("You win");
+        else if(enemy.getHealth() <= 0){
+            System.out.println("You won the battle.");
             setGameEnd(true);
         }
         else{
