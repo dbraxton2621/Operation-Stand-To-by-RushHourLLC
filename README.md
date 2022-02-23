@@ -36,7 +36,7 @@ After each round you will be able to use STORE OPTIONS (Health, Soldiers, Air Su
 
 The player will strategize placement of soldiers into lanes will keep their Soldiers.
 
-May fortune be in your favour, the lane chosen is the one most heavily defended by your soldiers.
+May fortune be with you, the lane chosen is the one most heavily defended by your soldiers.
 
 The winner of the game will be the one that depletes oppositions health to 0.
 
