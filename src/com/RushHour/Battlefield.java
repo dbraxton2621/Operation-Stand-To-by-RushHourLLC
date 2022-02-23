@@ -72,7 +72,7 @@ public class Battlefield {
         System.out.println("Enemy HP: " + enemy.getHealth());
         System.out.println("Player HP: " + player.getHealth());
         System.out.println("========================================");
-        System.out.println(" [U]pdate                     [P]lay");
+        System.out.println(" [U]pdate        [P]lay        [R]ules  " );
         System.out.println("========================================");
 
         System.out.println("Your current Values");
@@ -100,7 +100,11 @@ public class Battlefield {
                 }
                 play();
                 break;
-
+            case "r":
+            case "rules":
+                display.showRuleSet();
+                menu();
+                break;
             default:
                 System.out.println("Enter a valid response");
                 menu();
