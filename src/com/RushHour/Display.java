@@ -1,11 +1,18 @@
 package com.RushHour;
 
 import com.apps.util.Console;
+import com.apps.util.SplashApp;
 
-class Display extends Thread{
+class Display extends Thread implements SplashApp {
 
     public Display(){
         super();
+    }
+
+    public void welcome() {
+            String title1 = "";
+            String title2 = "";
+
     }
 
     public void displayBattle(){
@@ -18,7 +25,7 @@ class Display extends Thread{
         for (String s : tankDisplay) {
             try {
                 System.out.println(s);
-                Thread.sleep(200);
+                Thread.sleep(500);
                 Console.clear();
             } catch (InterruptedException e) {
                 e.printStackTrace();

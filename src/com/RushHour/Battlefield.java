@@ -65,7 +65,7 @@ public class Battlefield {
     }
 
     public void menu() {
-        Console.clear();
+//        Console.clear();
         System.out.println("What would you like to do?");
         System.out.println("Current amount of soldiers: " + totalAmount);
         System.out.println("Required amount of soldiers: " + player.getSoldiers());
