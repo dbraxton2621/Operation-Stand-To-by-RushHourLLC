@@ -1,61 +1,46 @@
-# Operation-Stand-To-by-RushHourLLC
-Java, battlefield game
-
-Project Team
-* Devin B. (owner)
+# Welcome to the Operation Stand To!
+Java based war game by
+###Team 3 "RushHour LLC"
+* Devin B. (owner,collaborator)
 * Zakee T. (collaborator)
 * Jimmy V. (collaborator)
 
 
+## How to play
+You start the game with 100 soldier and 100% health.
 
-Welcome to the Stand To!
+Distribute your total Soldiers across 5 lanes.
 
-This is a game where you distribute your Soldiers across the battlefield to attack and defends bases.
-The player will choose 5 numbers which will equal to the amount of allotted Soldiers to be placed across the field.
-The enemy who is computer generated will randomly generate 5 numbers to place in opposing positions.
-The player will assign Soldiers which doesn't exceed the allotted amount across the battlefield.
-The player with the most amount of Soldiers in the respective lane will keep their Soldiers and will be placed 
-into their pool for the next battle. The difference of the respective attacks will be depleted from the loser base health.
-This cycle will continue until an opponent has no Soldiers or no base health.
+Player cannot assign more soldiers than the allotted amount.
 
-After each war you will be able to add Soldiers, Air Support, or add extra Health to your base.
-Roll dice to get value for given choice. 
-    -You can get 10 Soldiers
-    -Air Support which will take 10 away from the opponents base health
-    -You can get 10 points added to your base health
+Game randomly chooses the lane to play and the values set in those lanes.
 
-You will then go on to the next war and fight a more difficult opponent.
+Opponent with the soldier value highest for the "played lane" affects the health of opposing side by that difference.
+
+After each round you will be able to use STORE OPTIONS (Health, Soldiers, Air Support).
 
 
-Concerns to Address:
-**Can you frontload, i.e put all units onto one lane?
+####PLAY OPTIONS
+- [U] = Update "User can change there previous lane values before the match starts."
+- [P] = Play   "User starts match round"
 
-Should the damage to the base health be mitigated. 
 
-Do users have to use all of their units? Its mentioned that the game is over once
-one player loses all health OR loses all their units?  Yes, you need to use all of them.
+####STORE OPTIONS
+- [H] = Health    "You can get 5 additional units of health"
+- [S] = Soldiers     "You can get 10 additional units of Soldiers"
+- [A] = Air_support       "Take 10 units of  health from Enemy "
 
-Are units reset after each round? No
+## How to Win
 
-Do lanes get destroyed?  late implementation if possible 
-- how is that implemented?
-- Maybe a T/F variable
 
-How does the store work in relationship to the board / game?  The store will be shown after each war. 
-- how is that implemented?
+The player will strategize placement of soldiers into lanes will keep their Soldiers.
 
-What if there is a tie? It will be considered a loss and will need to replay the round.
+May fortune be with you, the lane chosen is the one most heavily defended by your soldiers.
 
-In which order is the game won i.e is it left to right or is it at the end. If
-I put all soldiers at the beginning and i do 80 dmg but the enemy does 80 throughout the other
-lanes, then who wins? Calculated at the end and will be considered a tie. 
+The winner of the game will be the one that depletes oppositions health to 0.
 
-// code implementation
-Will there be a prompter before the user puts units into the board? Yes
-- [P]lace - [S]tore - ([S]tart)
-Can the user change there input before the game starts or is it final?
-Should maybe the user inputs the units one lane at a time. i.e I can choose
-Lane 1 and put 10 units, get prompted for which lane next**
-Allow user to input Soldiers to the specific lane and see the total adjust. The user will be able to change the amounts 
-before starting the battle. 
+.
+
+
+
 
