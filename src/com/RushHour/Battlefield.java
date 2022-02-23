@@ -1,5 +1,7 @@
 package com.RushHour;
 
+import com.apps.util.Console;
+
 import java.util.Scanner;
 
 
@@ -36,7 +38,7 @@ public class Battlefield {
                 playerLanes[i] = total;
                 break;
             }
-            System.out.println("Lane: " + (i + 1) + " Enter the amount of soldiers between 1 and " + total);
+            System.out.println("Lane: " + (i + 1) + " Enter the amount of soldiers between 0 and " + total);
             // else we get the input from the user and check if it's valid.
             int soldiers = getValidNumber();
             // We put the amount into the lane and subtract it from the total
@@ -53,7 +55,7 @@ public class Battlefield {
                 String input = scanner.nextLine();
                 if (input.matches("\\d{1,2}")) {
                     selection = Integer.parseInt(input);
-                    if (1 <= selection && selection <= totalAmount) {
+                    if (0 <= selection && selection <= totalAmount) {
                         validInput = true;
                     }
                 }
@@ -62,7 +64,7 @@ public class Battlefield {
     }
 
     public void menu() {
-
+        Console.clear();
         System.out.println("What would you like to do?");
         System.out.println("Current amount of soldiers: " + totalAmount);
         System.out.println("Required amount of soldiers: " + player.getSoldiers());
@@ -122,7 +124,7 @@ public class Battlefield {
     private void play() {
         int laneNumber = (int) (Math.random() * 5);
         System.out.println("Chosen Lane: " + (laneNumber + 1));
-        enemyLanes = enemy.generateEnemyLanes(enemy);
+        enemyLanes = enemy.generateLanes();
         for (var item : enemyLanes) {
             System.out.print("[" + item + "]");
         }
@@ -135,12 +137,12 @@ public class Battlefield {
         // player wins, subtract dif from enemy health
         // subtract enemy lane soldiers from both sides
         if (dif > 0) {
-            System.out.println("You won and did " + dif + " dmg");
-            enemy.setHealth(enemy.getHealth() - dif);
+            System.out.println("You did " + dif + " dmg!");
+            enemy.deductHealth(dif);
         } else if (dif < 0){
             // enemy wins
-            System.out.println("You lost and took " + dif + " dmg");
-            player.setHealth(player.getHealth() - Math.abs(dif));
+            System.out.println("You took " + dif + " dmg!");
+            player.deductHealth(Math.abs(dif));
         } else {
             System.out.println("The fight was a draw and zero damage was taken.");
         }
@@ -148,15 +150,9 @@ public class Battlefield {
     }
 
     private void checkGameStatus(Player player, Enemy enemy) {
-        if(player.getHealth() <= 0){
-            System.out.println("You have lost!");
+        if(player.getHealth() <= 0 || enemy.getHealth() <= 0){
             setGameEnd(true);
-        }
-        else if(enemy.getHealth() <= 0){
-            System.out.println("You won the battle.");
-            setGameEnd(true);
-        }
-        else{
+        } else{
             player.goToStore();
             menu();
         }
