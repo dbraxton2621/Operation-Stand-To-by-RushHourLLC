@@ -3,7 +3,6 @@ package com.RushHour;
 import com.apps.util.Console;
 import com.apps.util.SplashApp;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +11,7 @@ import java.util.Scanner;
 
 import static java.nio.file.Files.readAllLines;
 
-class Display extends Thread implements SplashApp {
+class Display  {
 Scanner scanner = new Scanner(System.in);
 
     public Display() {
@@ -21,6 +20,7 @@ Scanner scanner = new Scanner(System.in);
 
     public void welcome() {
         //TODO let's find a way to show Zakee's artwork
+        // get it into a file and put into resources
         String title = "                                                                                                                                             \n" +
                 " @@@@@@  @@@@@@@  @@@@@@@@ @@@@@@@   @@@@@@  @@@@@@@ @@@  @@@@@@  @@@  @@@     @@@@@@ @@@@@@@  @@@@@@  @@@  @@@ @@@@@@@     @@@@@@@  @@@@@@  \n" +
                 "@@!  @@@ @@!  @@@ @@!      @@!  @@@ @@!  @@@   @!!   @@! @@!  @@@ @@!@!@@@    !@@       @!!   @@!  @@@ @@!@!@@@ @@!  @@@      @!!   @@!  @@@ \n" +
@@ -30,18 +30,14 @@ Scanner scanner = new Scanner(System.in);
                 "                                                                                                                                             \n";
         System.out.println();
         System.out.println(title);
-        continueText();
+        proceed();
         Console.clear();
         showRuleSet();
     }
 
-    public void continueText() {
-        System.out.println("Press any key and enter to continue.");
+    public void proceed() {
+        System.out.println("Press [Enter] to continue.");
         String input = scanner.nextLine();
-        switch (input){
-            default:
-                break;
-        }
     }
 
     public void showRuleSet() {
@@ -59,21 +55,25 @@ Scanner scanner = new Scanner(System.in);
                 e.printStackTrace();
             }
         };
-        continueText();
+        proceed();
         Console.clear();
     }
 
     public void displayBattle() {
-        String tank1 = "         __,-.\n\\|_|    ( .`-')\n|\"\"\"\\-=(_ (_,_)\n(____)   `--'";
-        String tank2 = "        __,-.\n\\|_|    ( .`-')_.o\n|\"\"\"\\-=(_ (_,_)\n(____)   `--'";
-        String tank3 = "         ..,-.      _.--\"\"\"\"o\n\\|_|    : .`-';_.-\"\n|\"\"\"\\-=:. (.,.)\n(____)   `:-'";
-        String tank4 = "        .. .       _.--\"\"\"\"--.\n\\|_|    : . : ; . \"             \"-.\n|\"\"\"\\-=:. :.,.;  " +
+        //TODO move to resources
+        // for(int i = 0 to 3) {
+        //      tankDisplay[i] = Files.readString(Path.of("resources/tank" + i + ".txt"));
+        String tank0 = "         __,-.\n\\|_|    ( .`-')\n|\"\"\"\\-=(_ (_,_)\n(____)   `--'";
+        String tank1 = "        __,-.\n\\|_|    ( .`-')_.o\n|\"\"\"\\-=(_ (_,_)\n(____)   `--'";
+        String tank2 = "         ..,-.      _.--\"\"\"\"o\n\\|_|    : .`-';_.-\"\n|\"\"\"\\-=:. (.,.)\n(____)   `:-'";
+        String tank3 = "        .. .       _.--\"\"\"\"--.\n\\|_|    : . : ; . \"             \"-.\n|\"\"\"\\-=:. :.,.;  " +
                 "                  `.\n(____)   `.:'                        o";
-        String[] tankDisplay = new String[]{tank1, tank2, tank3, tank4};
-        for (String s : tankDisplay) {
+
+        String[] tanks = {tank0, tank1, tank2, tank3};
+        for (String tank : tanks) {
             try {
-                System.out.println(s);
-                Thread.sleep(500);
+                System.out.println(tank);
+                Thread.sleep(750);
                 Console.clear();
             } catch (InterruptedException e) {
                 e.printStackTrace();
