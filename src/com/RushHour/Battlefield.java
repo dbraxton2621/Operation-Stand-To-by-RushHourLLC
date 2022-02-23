@@ -23,6 +23,7 @@ public class Battlefield {
 
     // Business Methods // Throws IllegalSoldierInputValue
     public void initializeBoard() {
+        Console.clear();
         // The total amount changes without changing the original totalAmount
         totalAmount = player.getSoldiers();
         int total = totalAmount;
@@ -122,6 +123,7 @@ public class Battlefield {
     }
 
     private void play() {
+        Console.clear();
         int laneNumber = (int) (Math.random() * 5);
         System.out.println("Chosen Lane: " + (laneNumber + 1));
         enemyLanes = enemy.generateLanes();

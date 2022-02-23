@@ -1,5 +1,7 @@
 package com.RushHour;
 
+import com.apps.util.Console;
+
 import java.util.Scanner;
 
 class Player {
@@ -20,6 +22,7 @@ class Player {
     //methods
     // TODO airstrike option in the future
     void goToStore() {
+        Console.clear();
         System.out.println("     TRADE YOUR HEALTH FOR SOLDIERS     ");
         System.out.println("                   OR");
         System.out.println("                GET HEALTH");
