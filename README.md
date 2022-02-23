@@ -34,7 +34,7 @@ After each round you will be able to use STORE OPTIONS (Health, Soldiers, Air Su
 ## How to Win
 
 
-The player will stratergize placement of soldiers into lanes will keep their Soldiers.
+The player will strategize placement of soldiers into lanes will keep their Soldiers.
 
 Hope the lane chosen is the most heavily defended.
 The winner of the game will be the one that depletes oppositions health to 0.
