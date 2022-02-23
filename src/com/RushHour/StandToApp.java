@@ -8,15 +8,20 @@ public class StandToApp {
         Enemy boss3 = new Enemy(120, 120);
 
         Enemy[] bosses = {boss1, boss2, boss3};
-        for (int i = 0; i <= bosses.length; i++) {
-            Player player = new Player(100, 100);
+        for (int i = 0; i < bosses.length; i++) {
+            Player player = new Player(bosses[i], 100, 100);
             boolean game = false;
             Battlefield battlefield = new Battlefield(player, bosses[i], game);
             battlefield.initializeBoard();
             while (!battlefield.isGameEnd()) {
                 battlefield.menu();
             }
-            System.out.println("You won the war, who will be next?");
+            if (player.getHealth() <= 0) {
+                System.out.println("You have failed your comrades!");
+                break;
+            }
+            System.out.println("You won, who will be next?");
         }
+        System.out.println("GAME END!");
     }
 }
