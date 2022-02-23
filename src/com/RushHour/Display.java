@@ -30,13 +30,13 @@ Scanner scanner = new Scanner(System.in);
                 "                                                                                                                                             \n";
         System.out.println();
         System.out.println(title);
-        System.out.println("Press any key and enter to continue.");
         continueText();
         Console.clear();
         showRuleSet();
     }
 
     public void continueText() {
+        System.out.println("Press any key and enter to continue.");
         String input = scanner.nextLine();
         switch (input){
             default:
@@ -59,7 +59,6 @@ Scanner scanner = new Scanner(System.in);
                 e.printStackTrace();
             }
         };
-        System.out.println("Press any key and enter to continue");
         continueText();
         Console.clear();
     }

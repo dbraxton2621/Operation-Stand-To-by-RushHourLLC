@@ -160,6 +160,7 @@ public class Battlefield {
         if(player.getHealth() <= 0 || enemy.getHealth() <= 0){
             setGameEnd(true);
         } else{
+            display.continueText();
             player.goToStore();
             menu();
         }
