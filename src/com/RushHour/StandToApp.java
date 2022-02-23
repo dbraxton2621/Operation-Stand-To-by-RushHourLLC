@@ -1,6 +1,7 @@
 package com.RushHour;
 
 public class StandToApp {
+
     public void execute() {
         Enemy boss1 = new Enemy(80, 80);
         Enemy boss2 = new Enemy(100, 100);
