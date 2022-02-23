@@ -1,7 +1,6 @@
 # Welcome to the Operation Stand To!
-Java based war game
-Created By
-Team 3 = "RushHourLLC"
+Java based war game by
+###Team 3 "RushHour LLC"
 * Devin B. (owner,collaborator)
 * Zakee T. (collaborator)
 * Jimmy V. (collaborator)
