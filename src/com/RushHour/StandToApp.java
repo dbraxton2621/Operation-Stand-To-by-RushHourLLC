@@ -10,6 +10,7 @@ public class StandToApp{
         Enemy boss2 = new Enemy(100, 100);
         Enemy boss3 = new Enemy(120, 120);
 
+        // Go through loop and battle three bosses
         Enemy[] bosses = {boss1, boss2, boss3};
         for (int i = 0; i < bosses.length; i++) {
             Player player = new Player(bosses[i], 100, 100);
