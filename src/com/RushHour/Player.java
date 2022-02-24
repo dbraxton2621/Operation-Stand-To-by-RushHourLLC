@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 class Player {
     //instance variables (fields)
-    public int soldiers = 100;
-    private int health = 100;
+    public int soldiers;
+    private int health;
     Scanner scanner = new Scanner(System.in);
     private Player enemy;
 

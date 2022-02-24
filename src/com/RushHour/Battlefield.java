@@ -139,13 +139,14 @@ public class Battlefield {
         int laneNumber = (int) (Math.random() * 5);
         System.out.println("Chosen Lane: " + (laneNumber + 1));
         enemyLanes = enemy.generateLanes();
+        System.out.println("Your value: " + playerLanes[laneNumber]);
         System.out.println("Enemy value: " + enemyLanes[laneNumber]);
         System.out.println();
 
         // if dif is positive, subtract from enemy hp
         // if dif is neg, subtract from user hp
         //int chosenLane = rand
-        int dif = ((int) playerLanes[laneNumber]) - ((int) enemyLanes[laneNumber]);
+        int dif = ( playerLanes[laneNumber]) - ( enemyLanes[laneNumber]);
         // player wins, subtract dif from enemy health
         // subtract enemy lane soldiers from both sides
         if (dif > 0) {
