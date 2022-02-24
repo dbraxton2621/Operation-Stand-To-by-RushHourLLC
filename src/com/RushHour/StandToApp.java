@@ -6,9 +6,9 @@ public class StandToApp{
         Display display = new Display();
         display.hello();
 
-        Enemy boss1 = new Enemy(80, 1);
-        Enemy boss2 = new Enemy(100, 1);
-        Enemy boss3 = new Enemy(120, 1);
+        Enemy boss1 = new Enemy(80, 80);
+        Enemy boss2 = new Enemy(100, 100);
+        Enemy boss3 = new Enemy(120, 120);
 
         Enemy[] bosses = {boss1, boss2, boss3};
         for (int i = 0; i < bosses.length; i++) {
@@ -32,6 +32,4 @@ public class StandToApp{
         }
         display.gameEnd();
     }
-
-
 }
