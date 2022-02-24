@@ -3,6 +3,7 @@ package com.RushHour;
 import com.apps.util.Console;
 import com.apps.util.SplashApp;
 
+import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,16 +12,15 @@ import java.util.Scanner;
 
 import static java.nio.file.Files.readAllLines;
 
-class Display  {
-Scanner scanner = new Scanner(System.in);
-String path = "";
+class Display {
+    Scanner scanner = new Scanner(System.in);
+    String path = "";
 
     public Display() {
         super();
     }
 
-    public void welcome() {
-
+    public void hello() {
         setPath("resources/welcomeBanner.txt");
         getPathReturn(getPath());
         showRuleSet();
@@ -107,4 +107,5 @@ String path = "";
     public void setPath(String path) {
         this.path = path;
     }
+
 }

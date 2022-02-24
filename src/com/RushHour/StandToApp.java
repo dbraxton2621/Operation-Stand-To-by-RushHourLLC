@@ -1,13 +1,10 @@
 package com.RushHour;
 
-import com.apps.util.SplashApp;
-
-public class StandToApp {
+public class StandToApp{
 
     public void execute() {
-
         Display display = new Display();
-        display.welcome();
+        display.hello();
 
         Enemy boss1 = new Enemy(80, 1);
         Enemy boss2 = new Enemy(100, 1);
@@ -35,4 +32,6 @@ public class StandToApp {
         }
         display.gameEnd();
     }
+
+
 }
