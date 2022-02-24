@@ -13,38 +13,20 @@ import static java.nio.file.Files.readAllLines;
 
 class Display  {
 Scanner scanner = new Scanner(System.in);
+String path = "";
 
     public Display() {
         super();
     }
 
     public void welcome() {
-        //TODO let's find a way to show Zakee's artwork
-        // get it into a file and put into resources
-        String title = "                                                                                                                                             \n" +
-                " @@@@@@  @@@@@@@  @@@@@@@@ @@@@@@@   @@@@@@  @@@@@@@ @@@  @@@@@@  @@@  @@@     @@@@@@ @@@@@@@  @@@@@@  @@@  @@@ @@@@@@@     @@@@@@@  @@@@@@  \n" +
-                "@@!  @@@ @@!  @@@ @@!      @@!  @@@ @@!  @@@   @!!   @@! @@!  @@@ @@!@!@@@    !@@       @!!   @@!  @@@ @@!@!@@@ @@!  @@@      @!!   @@!  @@@ \n" +
-                "@!@  !@! @!@@!@!  @!!!:!   @!@!!@!  @!@!@!@!   @!!   !!@ @!@  !@! @!@@!!@!     !@@!!    @!!   @!@!@!@! @!@@!!@! @!@  !@!      @!!   @!@  !@! \n" +
-                "!!:  !!! !!:      !!:      !!: :!!  !!:  !!!   !!:   !!: !!:  !!! !!:  !!!        !:!   !!:   !!:  !!! !!:  !!! !!:  !!!      !!:   !!:  !!! \n" +
-                " : :. :   :       : :: ::   :   : :  :   : :    :    :    : :. :  ::    :     ::.: :     :     :   : : ::    :  :: :  :        :     : :. :  \n" +
-                "                                                                                                                                             \n";
-        System.out.println();
-        System.out.println(title);
-        proceed();
-        Console.clear();
+
+        setPath("resources/welcomeBanner.txt");
+        getPathReturn(getPath());
         showRuleSet();
     }
-
-    public void proceed() {
-        System.out.println("Press [Enter] to continue.");
-        String input = scanner.nextLine();
-    }
-
-    public void showRuleSet() {
-        // Do a fileReader and read from the text file
-        // Display it for the user to see
-        String path = "resources/ruleSet.txt";
-        if(Files.exists(Path.of("resources/ruleSet.txt"))){
+    public void getPathReturn(String path){
+        if(Files.exists(Path.of(path))){
             try{
                 List<String> lines = Files.readAllLines(Path.of(path));
                 for (String line : lines){
@@ -59,18 +41,30 @@ Scanner scanner = new Scanner(System.in);
         Console.clear();
     }
 
-    public void displayBattle() {
-        //TODO move to resources
-        // for(int i = 0 to 3) {
-        //      tankDisplay[i] = Files.readString(Path.of("resources/tank" + i + ".txt"));
-        String tank0 = "         __,-.\n\\|_|    ( .`-')\n|\"\"\"\\-=(_ (_,_)\n(____)   `--'";
-        String tank1 = "        __,-.\n\\|_|    ( .`-')_.o\n|\"\"\"\\-=(_ (_,_)\n(____)   `--'";
-        String tank2 = "         ..,-.      _.--\"\"\"\"o\n\\|_|    : .`-';_.-\"\n|\"\"\"\\-=:. (.,.)\n(____)   `:-'";
-        String tank3 = "        .. .       _.--\"\"\"\"--.\n\\|_|    : . : ; . \"             \"-.\n|\"\"\"\\-=:. :.,.;  " +
-                "                  `.\n(____)   `.:'                        o";
+    public void proceed() {
+        System.out.println("Press [Enter] to continue.");
+        String input = scanner.nextLine();
+    }
 
-        String[] tanks = {tank0, tank1, tank2, tank3};
-        for (String tank : tanks) {
+    public void showRuleSet() {
+
+        setPath("resources/ruleSet.txt");
+        getPathReturn(getPath());
+    }
+
+    public void displayBattle() {
+
+        String[] tankDisplay = new String[5];
+        for (int i = 0; i < tankDisplay.length; i ++){
+            try{
+                tankDisplay[i] = Files.readString(Path.of("resources/tank"+i+".txt"));
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+        for (String tank : tankDisplay) {
             try {
                 System.out.println(tank);
                 Thread.sleep(750);
@@ -79,5 +73,38 @@ Scanner scanner = new Scanner(System.in);
                 e.printStackTrace();
             }
         }
+    }
+
+    public void gameEnd() {
+        setPath("resources/endBanner.txt");
+        getPathReturn(getPath());
+    }
+
+    public void showOpponent(int i) {
+        if(i == 0){
+            setPath("resources/opponent0.txt");
+            getPathReturn(getPath());
+        }
+        else if (i == 1){
+            setPath("resources/opponent1.txt");
+            getPathReturn(getPath());
+        }
+        else{
+            setPath("resources/opponent2.txt");
+            getPathReturn(getPath());
+        }
+    }
+
+    public void showVictory() {
+        setPath("resources/victoryBanner.txt");
+        getPathReturn(path);
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

@@ -46,6 +46,7 @@ public class Battlefield {
             playerLanes[i] = soldiers;
             total -= soldiers;
         }
+        Console.clear();
     }
 
     private int getValidNumber() {
@@ -65,19 +66,22 @@ public class Battlefield {
     }
 
     public void menu() {
-//        Console.clear();
+        Console.clear();
+        int i = 1;
         System.out.println("What would you like to do?");
         System.out.println("Current amount of soldiers: " + totalAmount);
         System.out.println("Required amount of soldiers: " + player.getSoldiers());
         System.out.println("Enemy HP: " + enemy.getHealth());
         System.out.println("Player HP: " + player.getHealth());
+        System.out.println();
         System.out.println("========================================");
         System.out.println(" [U]pdate        [P]lay        [R]ules  " );
         System.out.println("========================================");
 
-        System.out.println("Your current Values");
+        System.out.println("Your current Lane Values");
         for (var item : playerLanes) {
-            System.out.print("[" + item + "]");
+            System.out.println("Lane " + i + ": [" + item + "]");
+            i++;
         }
         System.out.println();
         String userInput = scanner.nextLine().toLowerCase();
@@ -94,7 +98,9 @@ public class Battlefield {
             case "p":
             case "play":
                 if(totalAmount!=player.getSoldiers()){
+                    Console.clear();
                     System.out.println("Please fix your lane total.");
+                    display.proceed();
                     menu();
                     break;
                 }
@@ -115,6 +121,7 @@ public class Battlefield {
         // exception if user puts wrong lane
         if (lane > playerLanes.length) {
             System.out.println("Enter a valid lane.");
+            display.proceed();
             menu();
         }
         System.out.println("Current Value for lane " + (lane + 1) + ": " + playerLanes[lane]);
@@ -132,9 +139,7 @@ public class Battlefield {
         int laneNumber = (int) (Math.random() * 5);
         System.out.println("Chosen Lane: " + (laneNumber + 1));
         enemyLanes = enemy.generateLanes();
-        for (var item : enemyLanes) {
-            System.out.print("[" + item + "]");
-        }
+        System.out.println("Enemy value: " + enemyLanes[laneNumber]);
         System.out.println();
 
         // if dif is positive, subtract from enemy hp
